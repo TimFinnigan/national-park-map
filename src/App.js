@@ -1,12 +1,20 @@
 import React from 'react';
-import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps';
+import {
+    GoogleMap,
+    withGoogleMap,
+    withScriptjs,
+    Marker,
+} from 'react-google-maps';
 
 function Map() {
     return (
         <GoogleMap
             defaultZoom={5}
             defaultCenter={{ lat: 37.0902, lng: -95.7129 }}
-        />
+        >
+            {/* TODO - map through array of parks Lat/Lng! */}
+            <Marker position={{ lat: 37, lng: -95 }} />
+        </GoogleMap>
     );
 }
 
