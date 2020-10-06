@@ -36,6 +36,9 @@ function Map() {
                         lat: selectedPark.lat,
                         lng: selectedPark.lng,
                     }}
+                    onCloseClick={() => {
+                        setSelectedPark(null);
+                    }}
                 >
                     <div>{selectedPark.name}</div>
                 </InfoWindow>
