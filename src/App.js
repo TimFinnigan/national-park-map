@@ -1,31 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     GoogleMap,
     withGoogleMap,
     withScriptjs,
     Marker,
+    InfoWindow,
 } from 'react-google-maps';
 
 import { parks } from './parks.js';
 
 function Map() {
+    const [selectedPark, setSelectedPark] = useState(null);
     return (
         <GoogleMap
             defaultZoom={5}
             defaultCenter={{ lat: 37.0902, lng: -95.7129 }}
         >
-            {parks.map((park, key) => {
-                console.log(park.lng);
-                return (
-                    <Marker
-                        key={park.park}
-                        position={{
-                            lat: park.lat,
-                            lng: park.lng,
-                        }}
-                    />
-                );
-            })}
+            {parks.map((park) => (
+                <Marker
+                    key={park.lat + park.lng}
+                    position={{
+                        lat: park.lat,
+                        lng: park.lng,
+                    }}
+                    onClick={() => {
+                        console.log(park);
+                        setSelectedPark(park);
+                    }}
+                />
+            ))}
+
+            {selectedPark && (
+                <InfoWindow
+                    position={{
+                        lat: selectedPark.lat + 1,
+                        lng: selectedPark.lng,
+                    }}
+                >
+                    <div>{selectedPark.name}</div>
+                </InfoWindow>
+            )}
         </GoogleMap>
     );
 }
