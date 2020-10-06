@@ -27,6 +27,10 @@ function Map() {
                         console.log(park);
                         setSelectedPark(park);
                     }}
+                    icon={{
+                        url: '/tree.svg',
+                        scaledSize: new window.google.maps.Size(50, 50),
+                    }}
                 />
             ))}
 
