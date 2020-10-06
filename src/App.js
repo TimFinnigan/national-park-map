@@ -7,6 +7,7 @@ import {
     InfoWindow,
 } from 'react-google-maps';
 
+import mapStyles from './mapStyles';
 import { parks } from './parks.js';
 
 function Map() {
@@ -15,6 +16,7 @@ function Map() {
         <GoogleMap
             defaultZoom={5}
             defaultCenter={{ lat: 37.0902, lng: -95.7129 }}
+            defaultOptions={{ styles: mapStyles }}
         >
             {parks.map((park) => (
                 <Marker
