@@ -33,7 +33,7 @@ function Map() {
             {selectedPark && (
                 <InfoWindow
                     position={{
-                        lat: selectedPark.lat + 1,
+                        lat: selectedPark.lat,
                         lng: selectedPark.lng,
                     }}
                 >
