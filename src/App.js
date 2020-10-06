@@ -6,14 +6,26 @@ import {
     Marker,
 } from 'react-google-maps';
 
+import { parks } from './parks.js';
+
 function Map() {
     return (
         <GoogleMap
             defaultZoom={5}
             defaultCenter={{ lat: 37.0902, lng: -95.7129 }}
         >
-            {/* TODO - map through array of parks Lat/Lng! */}
-            <Marker position={{ lat: 37, lng: -95 }} />
+            {parks.map((park, key) => {
+                console.log(park.lng);
+                return (
+                    <Marker
+                        key={park.park}
+                        position={{
+                            lat: park.lat,
+                            lng: park.lng,
+                        }}
+                    />
+                );
+            })}
         </GoogleMap>
     );
 }
